@@ -1,0 +1,120 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.9%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+    scroll-behavior: smooth;
+  }
+
+  html, body {
+    @apply bg-dark-300 text-ghost overflow-x-hidden font-serif cursor-default;
+  }
+
+  body {
+    background: linear-gradient(to bottom, #121212, #0A0A0A);
+  }
+}
+
+@layer components {
+  .sketch-line {
+    @apply stroke-ghost fill-none opacity-80;
+    stroke-width: 1.5px;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw-in 2s ease-out forwards;
+  }
+
+  .artwork-card {
+    @apply relative overflow-hidden rounded-md bg-dark-100 border border-charcoal-200 transition-all duration-500 hover:shadow-[0_0_25px_rgba(139,0,0,0.4)];
+  }
+
+  .sketch-mask {
+    -webkit-mask-image: url('/smartyart-uploads/2b5f2ccd-6b1d-4d5b-9d7d-414b9406ca1a.png');
+    mask-image: url('/smartyart-uploads/2b5f2ccd-6b1d-4d5b-9d7d-414b9406ca1a.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  .ink-splatter {
+    background-image: url('/smartyart-uploads/ee56943d-0405-480a-83c8-ef2fccc86d19.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.5s ease-out;
+    opacity: 0;
+  }
+
+  .horror-bg {
+    background-image: url('/smartyart-uploads/a3a35b77-86d2-4a7b-afd8-67fddd2a9b10.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    mix-blend-mode: overlay;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'EB Garamond', 'Crimson Text', serif;
+  }
+  
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .text-shadow-red {
+    text-shadow: 0 0 8px rgba(139, 0, 0, 0.7);
+  }
+
+  .sketch-animated:hover path {
+    animation: draw-in 2s ease-out forwards;
+  }
+}
