@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   server:
     build: ./backend
@@ -11,14 +9,12 @@ services:
     networks:
       - fullstack-net
     restart: unless-stopped
-    depends_on:
-      - mongodb  # if you're using MongoDB
 
   client:
     build: ./frontend
     container_name: react-client
     ports:
-      - "5174:3000"  # or use 80:3000 for production
+      - "5174:3000"
     env_file:
       - ./frontend/.env
     networks:
