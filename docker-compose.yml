@@ -11,12 +11,14 @@ services:
     restart: unless-stopped
 
   client:
-    build: ./frontend
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE: http://76.13.30.128:4000/api
+        VITE_STRIPE_PUBLIC_KEY: pk_live_51SqC9m0h8FjV17KRFgFfNUfPazbcCG2AdNmzWMvGdwTP3Lwu0ZPyW2xm04bZQg7Pf1y7X1WeIUS8JWD0Y75BAwgK00nswoxbG
     container_name: react-client
     ports:
       - "5174:3000"
-    env_file:
-      - ./frontend/.env
     networks:
       - fullstack-net
     depends_on:

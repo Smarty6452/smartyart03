@@ -3,6 +3,12 @@ FROM node:22-alpine AS build
 
 WORKDIR /app
 
+# Add these for env vars (before build)
+ARG VITE_API_BASE
+ARG VITE_STRIPE_PUBLIC_KEY
+ENV VITE_API_BASE=$VITE_API_BASE
+ENV VITE_STRIPE_PUBLIC_KEY=$VITE_STRIPE_PUBLIC_KEY
+
 # Copy package files
 COPY package*.json ./
 
