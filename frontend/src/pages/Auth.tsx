@@ -9,10 +9,6 @@ import { useToast } from '@/hooks/use-toast';
 import { Eye, EyeOff, ArrowLeft, Palette } from 'lucide-react';
 import { z } from 'zod';
 
-// At the top, after imports
-console.log('VITE_API_BASE:', import.meta.env.VITE_API_BASE);
-console.log('VITE_STRIPE_PUBLIC_KEY:', import.meta.env.VITE_STRIPE_PUBLIC_KEY);
-
 const authSchema = z.object({
   email: z.string().email('Invalid email'),
   password: z.string().min(6, 'Password too short'),
