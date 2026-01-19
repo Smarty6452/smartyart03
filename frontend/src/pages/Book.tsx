@@ -461,7 +461,7 @@ const Book = () => {
                     <span className="font-semibold">e-Transfer Instructions</span>
                   </div>
                   <p className="text-ghost/70 text-sm">
-                    Send $20 deposit via Interac e-Transfer to admin@xdevverse.com. Include your booking ID in the message.
+                    Send $20 deposit via Interac e-Transfer to rohitbharti326452@gmail.com Include your booking ID in the message.
                   </p>
                   <p className="text-ghost/70 text-sm mt-2">
                     For more info, call 742-999-0414 or chat on WhatsApp.
