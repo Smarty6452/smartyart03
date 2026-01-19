@@ -3,20 +3,27 @@ FROM node:22-alpine AS build
 
 WORKDIR /app
 
+# Copy package files
 COPY package*.json ./
-RUN npm install
 
+# Install dependencies
+RUN npm ci
+
+# Copy source code
 COPY . .
+
+# Build the application
 RUN npm run build
 
 # production stage
-FROM node:22-alpine
+FROM node:22-alpine AS production
 
 WORKDIR /app
 
-RUN npm i -g serve
-ENV PATH="/usr/local/bin:${PATH}"
+# Install serve globally
+RUN npm install -g serve
 
+# Copy built application from build stage
 COPY --from=build /app/dist ./dist
 
 EXPOSE 3000

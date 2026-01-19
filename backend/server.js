@@ -178,6 +178,9 @@ app.post('/api/stripe-webhook', express.json({
   }
 });
 
+app.get("/api/health", (req, res) => res.json({ ok: true }));
+
+
 // Cors and body parsers
 app.use(cors({
   origin: [
